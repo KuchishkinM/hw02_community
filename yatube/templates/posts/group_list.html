@@ -1,22 +1,17 @@
 {% extends 'base.html' %}
+
 {% block title %}
-{{ text }}
+{{ title }}
 {% endblock %}
+
 {% block content %}
 <div class="container">
-  <h1>{{text}}</h1>
-    <article>
-      {% for post in posts %}
-      <ul>
-        <li>
-          Автор: {{ post.author.get_full_name }}
-        </li>
-        <li>
-          Дата публикации: {{ post.pub_date|date:"d E Y" }}
-        </li>
-      </ul>
-      <p>{{ post.text }}</p>
-    </article>
-  {% endfor %}
+  <h1>{{ text_h1 }}</h1>
+  <p>{{ text_p }}</p>
+    {% for post in posts %}
+      <article>
+        {% include 'includes/post.html' %}
+      </article>
+    {% endfor %}
 </div>
 {% endblock %}
