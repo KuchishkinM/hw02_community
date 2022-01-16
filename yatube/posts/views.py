@@ -26,7 +26,7 @@ def group_posts(request: HttpRequest, slug) -> HttpResponse:
     context = {
         'title': title,
         'text_h1': f'Посты группы {group.title}',
-        'text_p': f'Группа тайных поклонников графа.',
+        'text_p': 'Группа тайных поклонников графа.',
         'group': group,
         'posts': posts,
     }
