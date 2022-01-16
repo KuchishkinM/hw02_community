@@ -8,10 +8,9 @@
 <div class="container">
   <h1>{{ text_h1 }}</h1>
   <p>{{ text_p }}</p>
-    {% for post in posts %}
-      <article>
-        {% include 'includes/post.html' %}
-      </article>
-    {% endfor %}
+  {% for post in posts %}
+    {% include 'posts/post.html' %}
+  {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %}
 </div>
 {% endblock %}
