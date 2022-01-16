@@ -20,13 +20,13 @@ def index(request: HttpRequest) -> HttpResponse:
 def group_posts(request: HttpRequest, slug) -> HttpResponse:
     template = 'posts/group_list.html'
     group = get_object_or_404(Group, slug=slug)
-    posts = (Post.objects.select_related('group')
+    posts = (Post.objects.select_related('group', 'author')
                  .filter(group=group)[:COUNT_OF_POSTS])
     title = f'Записи сообщества {group.title}.'
     context = {
         'title': title,
         'text_h1': f'Посты группы {group.title}',
-        'text_p': 'Группа тайных поклонников графа.',
+        'text_p': f'Группа тайных поклонников графа - {group.title}.',
         'group': group,
         'posts': posts,
     }

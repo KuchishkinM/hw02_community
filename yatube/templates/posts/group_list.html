@@ -10,7 +10,7 @@
   <p>{{ text_p }}</p>
   {% for post in posts %}
     {% include 'posts/post.html' %}
-  {% if not forloop.last %}<hr>{% endif %}
+    {% if not forloop.last %}<hr>{% endif %}
   {% endfor %}
 </div>
 {% endblock %}
